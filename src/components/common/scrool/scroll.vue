@@ -30,7 +30,8 @@ mounted(){
     observeDOM:true,
     click:true,
     probeType:this.probeType,
-    pullUpLoad:this.pullUpLoad
+    pullUpLoad:this.pullUpLoad,
+    observeImage: true
 
     })
     //监听滚动的位置
@@ -50,7 +51,8 @@ methods:{
         this.scroll.finishPullUp()
       },
       refresh(){
-          this.scroll. refresh()
+          console.log("aaaaaaa");
+          this.scroll.refresh()
           console.log(this.scroll);
       },
        getScrollY(){

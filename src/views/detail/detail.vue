@@ -1,7 +1,7 @@
 <template>
   <div class="detail">
       <detail-navbar @titleClick="titleClick" ref="nav"/>
-     <scroll class="query3" :probe-type="3" :pull-up-load="true"
+     <scroll class="query3" :probe-type="3" 
       ref="scroll" @scroll="detailScroll">
        <detail-swiper :topImages="topImages"> </detail-swiper>
        <detail-base-info :goods="goods"></detail-base-info>
@@ -64,9 +64,9 @@ components:{
   detailbottomBar
 },
 created(){
-    console.log(this.$route.params)
+   // console.log(this.$route.params)
     this.id=this.$route.params.id
-    console.log(typeof this.id);
+    //console.log(typeof this.id);
     getDetail(this.id).then(res=>{
       console.log(res);   
       const data =res.data.result;
@@ -91,14 +91,14 @@ created(){
 
 methods:{
   imageload(){
-   // console.log('---');
+   console.log('---');
    this.$refs.scroll.refresh()
     this.themeTopYs=[]
     this.themeTopYs.push(0)
        this.themeTopYs.push(this.$refs.params.$el.offsetTop)
        this.themeTopYs.push(this.$refs.comments.$el.offsetTop)
        this.themeTopYs.push(this.$refs.recommend.$el.offsetTop)
-       console.log(this.themeTopYs);
+       console.log(this.themeTopYs);   
   },
   titleClick(index){
    this.$refs.scroll.scrollTo(0, -(this.themeTopYs[index]-46),100)

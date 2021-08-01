@@ -13,7 +13,7 @@
   <scroll class="quer1" ref="scroll" :probe-type="3" @scroll="contentScroll"  :pull-up-load="true" @pullingUp="loadMore">
    <homeswiper :banners="banners" @swiperImgLoad="swiperImgLoad"></homeswiper> 
     <recommendview :recommends="recommends"></recommendview>
-    <featureview/>
+    <featureview/> 
      <tab-control 
      :titles="['流行','新款','精选']" 
       ref="tabControl2"
@@ -82,10 +82,10 @@ created(){
 },
  mounted(){
      //3.监听item中图片加载完成
-   this.$bus.$on("itemImageLoad",()=>{
-     console.log("mmmmm");
-     this.scroll&& this.$refs.scroll.refresh()    //注意ref要在组件挂载完以后获取
-   })
+this.$bus.$on("itemImageLoad",()=>{
+  console.log("mmmmm");
+   this.scroll&& this.$refs.scroll.refresh()    //注意ref要在组件挂载完以后获取
+ })
  },
  deactivated() {
   console.log("deactived");
@@ -94,7 +94,7 @@ created(){
  activated() {
    console.log("actived");
  this.$refs.scroll.scrollTo(0,this.saveY,1);
- this.$refs.scroll.refresh()
+ //this.$refs.scroll.refresh()
 },
 
 methods:{
